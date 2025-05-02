@@ -1,6 +1,7 @@
 ## Текущая структура таблиц БД
 
-![](src/main/resources/database diagram.png)
+![database diagram](https://github.com/user-attachments/assets/431a3aac-994f-4034-b09a-b24887a5fa20)
+
 
 ## Предложения по улучшению структуры
 
