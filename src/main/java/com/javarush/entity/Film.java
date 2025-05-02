@@ -1,5 +1,7 @@
 package com.javarush.entity;
 
+import com.javarush.util.RatingConverter;
+import com.javarush.util.YearConverter;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,7 +10,11 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.Year;
+import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
+
+import static java.util.Objects.isNull;
 
 @Getter
 @Setter
@@ -27,6 +33,7 @@ public class Film {
     private String description;
 
     @Column(name = "release_year", columnDefinition = "year")
+    @Convert(converter = YearConverter.class)
     private Year releaseYear;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -52,6 +59,7 @@ public class Film {
     @Lob
     @Column(name = "rating",
             columnDefinition = "enum('G', 'PG', 'PG-13', 'R', 'NC-17')")
+    @Convert(converter = RatingConverter.class)
     private Rating rating;
 
     @Lob

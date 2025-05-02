@@ -21,6 +21,7 @@ public enum Feature {
         if (isNull(value) || value.isEmpty()) {
             return null;
         }
+
         for (Feature feature : Feature.values()) {
             if (feature.value.equalsIgnoreCase(value)) {
                 return feature;

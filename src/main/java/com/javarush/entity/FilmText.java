@@ -9,9 +9,14 @@ import lombok.Setter;
 @Entity
 @Table(name = "film_text")
 public class FilmText {
+
     @Id
     @Column(name = "film_id", nullable = false)
     private Short id;
+
+    @OneToOne
+    @JoinColumn(name = "film_id")
+    private Film film;
 
     @Column(name = "title", nullable = false)
     private String title;
@@ -19,8 +24,4 @@ public class FilmText {
     @Lob
     @Column(name = "description", columnDefinition = "text")
     private String description;
-
-    @OneToOne
-    @JoinColumn(name = "film_id")
-    private Film film;
 }
